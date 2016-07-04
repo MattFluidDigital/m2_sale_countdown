@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="header.container">
+            <container name="fluid.countdown" as="fluid.countdown" label="Sales Countdown" />
+        </referenceContainer>
+        <referenceContainer  name="fluid.countdown">
+            <block class="Fluid\Countdown\Block\Countdown" name="=fluid_sale_countdown" template="countdown.phtml"/>
+        </referenceContainer>
+    </body>
+    <head>
+        <script src="Fluid_Countdown::js/countdown.js"/>
+        <css src="Fluid_Countdown::css/countdown.css"/>
+    </head>
+</page>

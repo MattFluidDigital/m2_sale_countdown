@@ -1,0 +1,61 @@
+<?php
+$enabled        = $this->getCountdownEnabled();
+if ($enabled == 0) {
+    return false;
+}
+$startDate      = $this->getStartDate();
+$endDate        = $this->getEndDate();
+$type           = $this->getType();
+$text           = $this->getHeadingText();
+$subText        = $this->getSubHeadingText();
+
+$startDateArray = explode('/', $startDate);
+$endDateArray   = explode('/', $endDate);
+$startDate      = $startDateArray[2] . '-' . $startDateArray[1] . '-' . $startDateArray[0];
+$endDate        = $endDateArray[2] . '-' . $endDateArray[1] . '-' . $endDateArray[0];
+$endTimeStamp   = strtotime($endDate);
+$startTimeStamp = strtotime($startDate);
+
+$now = time();
+if ($type == 'repeat') {
+    $seconds = strtotime(date('Y-m-d 23:59:59'));
+    $seconds = $seconds - $now;
+} else {
+    $seconds = $endTimeStamp - $now;
+}
+
+?>
+
+<div class="sales-countdown-container">
+    <div class="wrapper">
+
+        <div class="coountdown-text">
+            <div class="text">
+                <div class="heading"><?php echo $text; ?></div>
+                <div class="sub-heading"><?php echo $subText; ?></div>
+            </div>
+        </div>
+
+        <div class="countdown1">
+            <script type="text/javascript">
+                var countWidth = 333;
+                var countHeight = 72;
+
+                var myCountdown1 = new Countdown({
+                    time:<?php echo $seconds; ?>,
+                    rangeHi: "day",
+                    width: countWidth,
+                    height: countHeight,
+                    //style:"flip",
+                    labels: {
+                        font: "Arial",
+                        color: "#000000",
+                        weight: "normal"	 // < - no comma on last item!
+                    }
+                });
+
+            </script>
+        </div>
+
+    </div>
+</div>

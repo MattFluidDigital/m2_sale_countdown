@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Config/etc/system_file.xsd">
+    <system>
+        <!-- Add new Tab -->
+        <tab id="fluiddigital" translate="label" sortOrder="200">
+            <label>Fluid Digital</label>
+        </tab>
+        <section id="salecountdown" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Sale Countdown</label>
+            <tab>fluiddigital</tab>
+            <!-- resource tag name which we have to defined in the acl.xml -->
+            <resource>FluidDigital_SaleCountdown::config_salecountdown</resource>
+
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Options</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled - Frontend</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="countdown_text" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Countdown Heading Text</label>
+                </field>
+                <field id="countdown_sub_text" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Countdown Sub Heading Text</label>
+                </field>
+                <field id="countdown_type" translate="label" type="select" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Countdown Type</label>
+                    <comment>If repeat countdown will reset the timer each day at midnight</comment>
+                    <source_model>Fluid\Countdown\Model\CountdownOptions</source_model>
+                </field>
+                <field id="countdown_start_date" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Start Date</label>
+                    <comment>dd/mm/yyyy</comment>
+                </field>
+                <field id="countdown_date" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>End Date</label>
+                    <comment>dd/mm/yyyy</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
